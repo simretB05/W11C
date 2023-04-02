@@ -1,3 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-image: url(/images/backgrounf.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #header {
   display: grid;
   place-items: center;
@@ -9,28 +22,27 @@
 #header h2 {
   text-align: start;
   justify-self: start;
-  color: #c2c2c2;
+  color: #db1717;
   font-size: 1.2rem;
 }
-#header nav {
-  width: 70%;
-  display: grid;
-  justify-self: end;
-  position: relative;
-}
-#header nav a {
-  justify-self: end;
-  width: 95px;
-  grid-template-columns: 1fr 1fr;
-  gap: 11px;
+
+#main {
   display: grid;
   place-items: center;
-  text-decoration: none;
-  color: black;
 }
-#header nav img {
-  width: 20px;
-  justify-self: end;
+#main h1,
+#main p {
+  color: #1a1717;
+  background-color: white;
+  padding: 10px;
+}
+
+.main_section {
+  display: grid;
+  justify-self: start;
+  place-items: center;
+  padding: 30px;
+  margin: 30px;
 }
 
 /*# sourceMappingURL=style.css.map */
