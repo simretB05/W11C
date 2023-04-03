@@ -40,7 +40,6 @@ Cookies.set( `user_hp`, userPokemon[`max_health`])
 Cookies.set( `comp_hp`, compPokemon[`max_health`])
 Cookies.set( `user_pokemon`, userPokemon_json)
 Cookies.set( `computer_pokemon`, compPokemon_json )
-Cookies.set( `selected_pokemon`, selection_json)
 
     
 }

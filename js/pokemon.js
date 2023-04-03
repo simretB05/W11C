@@ -1,7 +1,7 @@
 let pokemon = [
     {
     name: `Pikachu`,
-    max_health: 50,
+    max_health: 20,
     image_url:`/images/pikachu.gif`,
     attacks: [
         {
@@ -20,7 +20,7 @@ let pokemon = [
     },
     {
     name: `Charizard`,
-    max_health: 50,
+    max_health: 20,
     image_url:`/images/charizard.gif`,
     attacks: [
         {
@@ -39,20 +39,20 @@ let pokemon = [
     },
     {
     name: `Tauros`,
-    max_health: 50,
+    max_health: 20,
     image_url:`/images/tauros.gif`,
     attacks: [
         {
             name:`Block`,
-            damage:7
+            damage:4
         },
         {
             name:`Blaze kick`,
-            damage:7
+            damage:4
         },
         {
             name:`Bulk up`,
-            damage:7
+            damage:5
         }
     ]
     },
