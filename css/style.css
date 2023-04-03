@@ -38,7 +38,7 @@ body {
   padding: 10px;
 }
 #main p {
-  color: #f0eded;
+  color: #260707;
   padding: 10px;
   font-size: 40px;
   font-weight: 900;
@@ -57,10 +57,10 @@ body {
 .main_section .main {
   display: grid;
   place-items: center;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 .main_section .main div {
-  width: 118px;
+  width: 148px;
 }
 .main_section .main div h2 {
   text-align: center;
@@ -75,10 +75,10 @@ body {
   font-weight: 700;
   padding: 7px;
   transition: background-color 0.5s ease;
-  box-shadow: 0 3px 0 #b2b3b4;
+  box-shadow: 0 1px 0 #b2b3b4;
 }
 .main_section .main .selection:hover {
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
 }
 .main_section .main .selection:active {
   transform: translateY(1px);

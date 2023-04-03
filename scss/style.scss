@@ -35,7 +35,7 @@ body {
         padding: 10px;
     }
     p {
-        color: #f0eded;
+        color: #260707;
         padding: 10px;
         font-size: 40px;
         font-weight: 900;
@@ -53,9 +53,9 @@ body {
     .main {
         display: grid;
         place-items: center;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         div {
-            width: 118px;
+            width: 148px;
             h2 {
                 text-align: center;
             }
@@ -70,10 +70,10 @@ body {
             font-weight: 700;
             padding: 7px;
             transition: background-color 0.5s ease;
-            box-shadow: 0 3px 0 #b2b3b4;
+            box-shadow: 0 1px 0 #b2b3b4;
 
             &:hover {
-                box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
             }
             &:active {
                 transform: translateY(1px);
