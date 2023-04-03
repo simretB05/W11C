@@ -6,10 +6,11 @@ let main_section = document.querySelector( `.main_section` )
 for ( let i = 0; i <pokemon.length; i++ ){
     main_section.insertAdjacentHTML( `beforeend`, 
     ` <div class="main">
-    <h2 class="name">${pokemon[i][`name`]} </h2>
-    <img style="width:80px; height:80px; margin:30px; " src="${pokemon[i][`image_url`]}" alt="Pokémon image">
-    <a style="text-decoration:none; border-radius:10px; cursor: grab;; background-color:white; padding:5px;"  class="selection" selection_kind="${pokemon[i][`name`]}"> Choose Me</a>
-
+        <div>
+            <img style="width:100px; height:100px; margin:30px; " src="${pokemon[i][`image_url`]}" alt="Pokémon image">
+            <h2 class="name">${pokemon[i][`name`]} </h2>
+        </div>
+         <a  class="selection" selection_kind="${pokemon[i][`name`]}"> Choose Me</a>
     </div>
   `)
 
@@ -33,13 +34,12 @@ function selectPokemon( details ){
     }
 userData.push( userPokemon)
 let compPokemon =pokemon[1]
-let selection_json = JSON.stringify(userData)
 let userPokemon_json = JSON.stringify(userData )
 let compPokemon_json = JSON.stringify(compPokemon)
 Cookies.set( `user_hp`, userPokemon[`max_health`])
 Cookies.set( `comp_hp`, compPokemon[`max_health`])
 Cookies.set( `user_pokemon`, userPokemon_json)
-Cookies.set( `computer`, compPokemon_json )
+Cookies.set( `computer_pokemon`, compPokemon_json )
 Cookies.set( `selected_pokemon`, selection_json)
 
     

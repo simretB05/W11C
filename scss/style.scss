@@ -5,7 +5,7 @@
 }
 body {
     background-image: url(/images/back4.jpg);
-    background-position: center;
+    background-position: cover;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -28,6 +28,7 @@ body {
     display: grid;
     place-items: center;
     padding-left: 400px;
+    min-height: 80vh;
     h1 {
         color: #1a1717;
         background-color: rgb(241, 184, 184);
@@ -45,6 +46,39 @@ body {
 .main_section {
     display: grid;
     justify-self: start;
+    align-self: end;
     place-items: center;
-    cursor: grab;
+    cursor: pointer;
+    grid-template-columns: 1fr 1fr 1fr;
+    .main {
+        display: grid;
+        place-items: center;
+        grid-template-columns: 1fr 1fr;
+        div {
+            width: 118px;
+            h2 {
+                text-align: center;
+            }
+        }
+        .selection {
+            width: 92px;
+            background-color: #f1f3f6;
+            border: none;
+            border-radius: 15px;
+            text-align: center;
+            color: rgb(27, 26, 26);
+            font-weight: 700;
+            padding: 7px;
+            transition: background-color 0.5s ease;
+            box-shadow: 0 3px 0 #b2b3b4;
+
+            &:hover {
+                box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+            }
+            &:active {
+                transform: translateY(1px);
+                box-shadow: none;
+            }
+        }
+    }
 }

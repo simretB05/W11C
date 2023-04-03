@@ -38,9 +38,9 @@ let pokemon = [
     ]
     },
     {
-    name: `Eevee`,
+    name: `Tauros`,
     max_health: 50,
-    image_url:`/images/nidoking.gif`,
+    image_url:`/images/tauros.gif`,
     attacks: [
         {
             name:`Block`,
