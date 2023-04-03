@@ -2,7 +2,7 @@ let pokemon = [
     {
     name: `Pikachu`,
     max_health: 50,
-    image_url:`/images/Pikachu.jpg`,
+    image_url:`/images/pikachu.gif`,
     attacks: [
         {
             name:`Block`,
@@ -21,7 +21,7 @@ let pokemon = [
     {
     name: `Charizard`,
     max_health: 50,
-    image_url:`/images/charizaed.jpg`,
+    image_url:`/images/charizard.gif`,
     attacks: [
         {
             name:`Defog`,
@@ -40,7 +40,7 @@ let pokemon = [
     {
     name: `Eevee`,
     max_health: 50,
-    image_url:`/images/evee.jpg`,
+    image_url:`/images/nidoking.gif`,
     attacks: [
         {
             name:`Block`,

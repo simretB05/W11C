@@ -4,8 +4,8 @@
     font-family: "Poppins", sans-serif;
 }
 body {
-    background-image: url(/images/back4.jpg);
-    background-position: center;
+    background-image: url(/images/back6.jpg);
+    background-position: cover;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -20,30 +20,27 @@ body {
     h2 {
         text-align: start;
         justify-self: start;
-        color: #db1717;
+        color: #060505;
         font-size: 1.2rem;
     }
 }
 #main {
     display: grid;
     place-items: center;
-    padding-left: 400px;
+    padding-left: 90px;
+
     h1 {
         color: #1a1717;
-        background-color: rgb(241, 184, 184);
+        // background-color: white;
         padding: 10px;
-    }
-    p {
-        color: #f0eded;
-        padding: 10px;
-        font-size: 40px;
-        font-weight: 900;
-        text-decoration: underline;
-        justify-self: start;
+        font-size: 60px;
+        font-weight: 800;
     }
 }
 .main_section {
     display: grid;
     justify-self: start;
     place-items: center;
+    padding-left: 90px;
+    margin: 30px;
 }
