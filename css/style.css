@@ -49,6 +49,7 @@ body {
   display: grid;
   justify-self: start;
   place-items: center;
+  cursor: grab;
 }
 
 /*# sourceMappingURL=style.css.map */
