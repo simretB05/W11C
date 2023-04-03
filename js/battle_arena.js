@@ -27,27 +27,40 @@ main_display.insertAdjacentHTML( `afterbegin`,
 ` <div class="main">
 <h2 class="name">${compSelection[`name`] } </h2>
 <img style="width:80px; height:80px; margin:30px;" src="${compSelection[`image_url`] }" alt="Pokémon image">
-<button style="text-decoration:none; border-radius:10px;  cursor: pointer; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); background-color:white; padding:5px; width:90px"  class="selection" selection_kind="Pikachu">${compSelection[`attacks`][2][`name`]} </button>
 <p id="comp_hp_text" style=" width:30px; text-align:center;background-color:white;">${compSelection[`max_health`]}</p>
 </div>
 ` )
  
-// function computerdamage() {
-//     return choices[Math.floor(Math.random()*.length)];
-// }
- 
-function attack( details ){
-    user_health = user_health - 
+
+const choices = ['Rock', 'Paper', 'Scissors'];
+
+
+
+
+function userAttack( details )
+{
+    let randomAttackIndex = [Math.floor( Math.random() * pokemon[1][`attacks`].length )]//0,1,2
+    
+    let randomAttack = pokemon[1][`attacks`][randomAttackIndex]//{ name:`Defog`, damage:7}
+    
+    // let randomDamageIndex = [Math.floor( Math.random() * [randomAttack].length)]// 0,1 length 2
+
+    let randomDamage = randomAttack[`damage`]// 6,7,5
+
+    console.log(randomDamage)
+    user_health = user_health -  randomDamage
     Cookies.set( `user_health`, user_health )
     
-    comp_health = comp_health - 5
+    comp_health = comp_health - 
     Cookies.set( `user_health`, user_health )
 
     let user_display = document.getElementById( `user_hp_text` )
     user_display[`innerHTML`] = user_health
     let comp_display = document.getElementById( `comp_hp_text` )
-    comp_display[`innerHTML`] = user_health
+    comp_display[`innerHTML`] = randomDamage
 
+
+   
 
 
     
@@ -55,4 +68,4 @@ function attack( details ){
 
 
 let attack_button = document.getElementById( `attack_btn` )
-attack_button.addEventListener(`click`,attack)
+attack_button.addEventListener(`click`,userAttack)

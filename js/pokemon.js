@@ -29,11 +29,11 @@ let pokemon = [
         },
         {
             name:`Egg Bomb`,
-            damage:7
+            damage:6
         },
         {
             name:`fire punch`,
-            damage:7
+            damage:5
         }
     ]
     },
