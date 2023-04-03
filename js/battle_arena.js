@@ -13,6 +13,7 @@
     let user_health = Cookies.get(`user_hp`)
     let comp_health = Cookies.get( `comp_hp`)
     
+
     for ( let i = 0; i < userSelection.length; i++ ){
         
         let damageHTML = ''
@@ -21,17 +22,17 @@
                 style="text-decoration:none; border-radius:10px; cursor: pointer;
                 box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); background-color:white;
                 padding:5px;  width:90px"  class="selection"
-                selection_kind="Pikachu">${ userSelection[i][`attacks`][x][`name`]} </button>
+                damage_value="${userSelection[i][`attacks`][x][`damage`]}">${ userSelection[i][`attacks`][x][`name`]}</button>
                 `
             }
         main_display.insertAdjacentHTML( `afterbegin`,
             ` <div style="display:grid" class="main">
                 <img style="width:80px; height:80px; margin:30px;" src="${ userSelection[i][`image_url`] }" alt="Pokémon image">
-                <p id="user_hp_text"  style="   width:30px;text-align:center;background-color:white;">${ userSelection[i][`max_health`] }</p>
+                <p id="user_hp_text"  style="width:30px;text-align:center;background-color:white;">${ userSelection[i][`max_health`] }</p>
 
                 <h2 class="name" style="margin-bottom:1rem;">${ userSelection[i][`name`] } </h2>
 
-                <div class="damage_types"  style="   gap:1rem; width:600px; display:grid; grid-template-columns: 1fr 1fr 1fr;width:224px; ">
+                <div class="damage_types"  style="gap:1rem; width:600px; display:grid; grid-template-columns: 1fr 1fr 1fr;width:224px; ">
                    ${damageHTML}
                 </div>
             </div>`)
@@ -58,16 +59,23 @@
     }
     
     function userAttack( details ){
-       
-    console.log(`clicked`)
-    }
-    let attack_button = document.querySelectorAll(`#attack_btn`)
-
-for ( let i = 0; i < attack_button.length; i++ )
-{ 
         
-    attack_button[i].addEventListener(`click`,userAttack)
-}
+            
+    let attackValue = {
+        damage: details[`target`].getAttribute( `damage_value` ),
+        
+    }
+
+        
+        console.log(attackValue[`damage`])
+        }
+        let attack_button = document.querySelectorAll(`#attack_btn`)
+
+    for ( let i = 0; i < attack_button.length; i++ )
+    { 
+            
+        attack_button[i].addEventListener(`click`,userAttack)
+    }
 
     
     
