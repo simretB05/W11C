@@ -44,6 +44,11 @@ body {
   place-items: center;
   padding-left: 90px;
   margin: 30px;
+  width: 60%;
+}
+.main_section .main {
+  display: grid;
+  justify-self: start;
 }
 
 /*# sourceMappingURL=battle.css.map */

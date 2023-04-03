@@ -43,4 +43,9 @@ body {
     place-items: center;
     padding-left: 90px;
     margin: 30px;
+    width: 60%;
+    .main {
+        display: grid;
+        justify-self: start;
+    }
 }
