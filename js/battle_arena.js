@@ -114,23 +114,23 @@ let new_comp_hp= Cookies.get( `comp_hp`)
         comp_display[`innerHTML`] = new_comp_hp
         
 // used the setTime out Method to add the result value of user player after attack with 3 seconds delay
-        setTimeout( compAttack, 3000 )
+        setTimeout( compAttack, 2000 )
 // added conditional that checks if the user and computer health value is <=0 to determine the winner 
         if (new_user_hp <= 0){ 
-            
-            result_display.insertAdjacentHTML(`beforeend`,`<h2>User Lost</h2>`)
+            alert(`User Lost!!`)
 
             
-        } else if ( new_comp_hp <= min_health )
-        {
+        } else {
          
-            result_display.insertAdjacentHTML(`beforeend`,`<h2> User Won</h2>`)
-
+            return new_comp_hp
+            alert(`User Won!!`)
 
         } 
 
 }
-    
+   
+// result_display.insertAdjacentHTML(`beforeend`,`<h2 style="  align-self: start;">User Lost</h2>`)
+
 // used query selector method  and a loop to select all the attack buttons from the dinamic html of the attack buttons
 let attack_button = document.querySelectorAll( `#attack_btn` )
 
