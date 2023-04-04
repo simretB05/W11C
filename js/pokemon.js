@@ -5,7 +5,7 @@ let pokemon = [
     image_url:`/images/pikachu.gif`,
     attacks: [
         {
-            name:`Skull Bash`,
+            name:`hug`,
             damage:4
         },
         {
@@ -44,11 +44,11 @@ let pokemon = [
     attacks: [
         {
             name:`Block`,
-            damage:4
+            damage:7
         },
         {
             name:`Blaze kick`,
-            damage:4
+            damage:6
         },
         {
             name:`Bulk up`,

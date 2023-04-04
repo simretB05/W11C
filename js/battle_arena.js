@@ -47,35 +47,51 @@
                     </div>
                     `)
      
-    function compAttack(){
-        let randomAttackIndex = [Math.floor( Math.random() * pokemon[1][`attacks`].length )]//0,1,2
-        
-        let randomAttack = pokemon[1][`attacks`][randomAttackIndex]//{ name:`Defog`, damage:7}
-    
-        let randomDamage = randomAttack[`damage`]// 6,7,5
-     
-        user_health = user_health -  randomDamage
+function compAttack()
+{
+                   
+    let randomAttackIndex = [Math.floor( Math.random() * pokemon[1][`attacks`].length )]//0,1,2
+                
+    let randomAttack = pokemon[1][`attacks`][randomAttackIndex]//{ name:`Defog`, damage:7}
+
+    let randomDamage = randomAttack[`damage`]// 6,7,5
+        user_health= user_health -  randomDamage
         Cookies.set( `user_hp`, user_health )
+        let user_display = document.getElementById( `user_hp_text` )
+        user_display[`innerHTML`] = user_health
+
     }
-    
+// let new_user_hp = []
+// let new_comp_hp = []
     function userAttack( details ){
-        
-            
-    let attackValue = {
-        damage: details[`target`].getAttribute( `damage_value` ),
-        
-    }
-
-        
-        console.log(attackValue[`damage`])
+        let attackValue = {
+            damage: details[`target`].getAttribute( `damage_value` ),
         }
-        let attack_button = document.querySelectorAll(`#attack_btn`)
+       // if ( !( user_health === undefined && comp_health === undefined ) ){ 
+        //     // new_user_hp = user_health.slice()
+        //     // new_comp_hp = comp_health.slice()
 
-    for ( let i = 0; i < attack_button.length; i++ )
-    { 
-            
-        attack_button[i].addEventListener(`click`,userAttack)
+          
+        // }
+        comp_health = comp_health - attackValue[`damage`]
+        Cookies.set( `comp_hp`, comp_health )
+
+        let comp_display = document.getElementById( `comp_hp_text` )
+        comp_display[`innerHTML`] = comp_health
+        setTimeout( compAttack, 3000 )
+        
+
+        
     }
+        
+
+        
+let attack_button = document.querySelectorAll( `#attack_btn` )
+        for ( let i = 0; i < attack_button.length; i++ ){ 
+                
+            attack_button[i].addEventListener( `click`, userAttack )
+            
+        }
 
     
     

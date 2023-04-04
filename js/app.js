@@ -1,4 +1,4 @@
-let selected_json = Cookies.get( `selected_pokemon` )
+let selected_json = Cookies.get( `user_pokemon` )
 //selected the the section where the pokes are displyed with queryselector
  
 let main_section = document.querySelector( `.main_section` )
@@ -17,7 +17,6 @@ for ( let i = 0; i <pokemon.length; i++ ){
     
 }
 let userData = []
-let compData=[]
 function selectPokemon( details ){
     let userPokemon = undefined;
     let selected_pokeman = details[`target`].getAttribute(`selection_kind`)
@@ -32,14 +31,14 @@ function selectPokemon( details ){
         userData = JSON.parse(selected_json);
      
     }
-userData.push( userPokemon)
-let compPokemon =pokemon[1]
-let userPokemon_json = JSON.stringify(userData )
-let compPokemon_json = JSON.stringify(compPokemon)
-Cookies.set( `user_hp`, userPokemon[`max_health`])
-Cookies.set( `comp_hp`, compPokemon[`max_health`])
-Cookies.set( `user_pokemon`, userPokemon_json)
-Cookies.set( `computer_pokemon`, compPokemon_json )
+        userData.push(userPokemon)
+        let compPokemon =pokemon[1]
+        let userPokemon_json = JSON.stringify(userData )
+        let compPokemon_json = JSON.stringify(compPokemon)
+        Cookies.set( `user_hp`, userPokemon[`max_health`])
+        Cookies.set( `comp_hp`, compPokemon[`max_health`])
+        Cookies.set( `user_pokemon`, userPokemon_json)
+        Cookies.set( `computer_pokemon`, compPokemon_json )
 
     
 }
