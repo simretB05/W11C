@@ -57,8 +57,12 @@
                     </div>
                     `)
 
-let new_comp_h;
-
+//used get method to get the new set value of comp_health and user_health value and assign 
+// it to a new variable and display it using the queryselector method 
+let new_user_hp = Cookies.get( `user_hp` )
+let user_display = document.getElementById( `user_hp_text` )
+let comp_display = document.getElementById( `comp_hp_text` )
+let new_comp_hp= Cookies.get( `comp_hp`)
 //declared a function fro the computer payer
 //  that will set a new value of the user_health after the user has been attaked 
     function compAttack(){
@@ -74,52 +78,63 @@ let new_comp_h;
 //   used the asign method  to get a new value of user_health
 //  after the user palyer has been attacked by computer palyer the randomDamage
         user_health = user_health - randomDamage
-        //setting the updated value of the user_health value
-            Cookies.set( `user_hp`, user_health )
+//setting the updated value of the user_health value
+        Cookies.set( `user_hp`, user_health )
+
+//used get method to get the new set value of user_health value and assign 
+// it to a new variable and display it using the queryselector method 
+        let new_user_hp = Cookies.get( `user_hp` )
+        user_display[`innerHTML`] = new_user_hp
 
 
         }
 
-    let = Cookies.get( `user_hp` )
-    let comp_display = document.getElementById( `comp_hp_text` )
-    let new_comp_hp= Cookies.get( `comp_hp`)
+
+//updating the new value of the innerHTml for both the user and comp players
         comp_display[`innerHTML`] = new_comp_hp
-    
+        user_display[`innerHTML`] = new_user_hp
 
     
+//created a function that gets a details argumnet
     function userAttack( details ){
-        let min_health = 0
+
+// created an object that will store the value of damage that will 
+// be taken from each button selected by the user player using 
+// the getAttribbute method and store it in the damage key name
         let attackValue = {
             damage: details[`target`].getAttribute( `damage_value` ),
         }
-        let user_display = document.getElementById( `user_hp_text` )
-        user_display[`innerHTML`] = new_user_hp
-
+//setting the updated value of the cop_health value after the comp 
+//   has been attacked with the selected damage value
         comp_health = comp_health - attackValue[`damage`]
         Cookies.set( `comp_hp`, comp_health )
-        new_comp_hp= comp_health
+// geting  the new value of the comp_health using the get
+//  method and assigning it to the new value of the innerHTML
+        let new_comp_hp= Cookies.get( `comp_hp`)
+        comp_display[`innerHTML`] = new_comp_hp
+        
+// used the setTime out Method to add the result value of user player after attack with 3 seconds delay
         setTimeout( compAttack, 3000 )
-
-        if (new_user_hp <= min_health){ 
+// added conditional that checks if the user and computer health value is <=0 to determine the winner 
+        if (new_user_hp <= 0){ 
             
-            alert(`User Lost`)
+            result_display.insertAdjacentHTML(`beforeend`,`<h2>User Lost</h2>`)
 
             
         } else if ( new_comp_hp <= min_health )
         {
-            alert(`User Won`)
          
-            // result_display.insertAdjacentHTML(`beforeend`,`<h2> User Won</h2>`)
+            result_display.insertAdjacentHTML(`beforeend`,`<h2> User Won</h2>`)
 
 
         } 
-        
 
 }
     
+// used query selector method  and a loop to select all the attack buttons from the dinamic html of the attack buttons
 let attack_button = document.querySelectorAll( `#attack_btn` )
+
         for ( let i = 0; i < attack_button.length; i++ ){ 
-                
             attack_button[i].addEventListener( `click`, userAttack )
             
         }
