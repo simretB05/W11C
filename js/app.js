@@ -10,7 +10,7 @@ for ( let i = 0; i <pokemon.length; i++ ){
             <img style="width:100px; height:100px; margin:30px; " src="${pokemon[i][`image_url`]}" alt="Pokémon image">
             <h2 class="name">${pokemon[i][`name`]} </h2>
         </div>
-         <a  class="selection" selection_kind="${pokemon[i][`name`]}"> Choose Me</a>
+         <a  class="selection"  style=" text-decoration: none;"  href="/pages/battle_arena.html"  selection_kind="${pokemon[i][`name`]}"> Choose Me</a>
     </div>
   `)
 
