@@ -63,6 +63,7 @@ let new_user_hp = Cookies.get( `user_hp` )
 let user_display = document.getElementById( `user_hp_text` )
 let comp_display = document.getElementById( `comp_hp_text` )
 let new_comp_hp = Cookies.get( `comp_hp` )
+let min_health = 0;
 //declared a function fro the computer payer
 //  that will set a new value of the user_health after the user has been attaked 
     function compAttack(){
@@ -85,19 +86,21 @@ let new_comp_hp = Cookies.get( `comp_hp` )
 // it to a new variable and display it using the queryselector method 
         let new_user_hp = Cookies.get( `user_hp` )
         user_display[`innerHTML`] = new_user_hp
-        if ( new_user_hp <= 0 ) {
+        if ( new_user_hp <= min_health ) {
           
             result_display.innerHTML = `<h2 style=" font-size:2rem; margin-bottom:32px; color:red">Game over! Play again!</h2>`
+            Cookies.set( `user_hp`, 20)
+            Cookies.set( `comp_hp`, 20 )
           
         } 
-        return new_user_hp =user_health
+    
+        return 
 
         }
 //updating the new value of the innerHTml for both the user and comp players
         comp_display[`innerHTML`] = new_comp_hp
         user_display[`innerHTML`] = new_user_hp
-        Cookies.set( `user_hp`, user_health)
-        Cookies.set( `comp_hp`, comp_health)
+       
     
 //created a function that gets a details argumnet
     function userAttack( details ){
@@ -118,16 +121,20 @@ let new_comp_hp = Cookies.get( `comp_hp` )
         comp_display[`innerHTML`] = new_comp_hp
         
 // used the setTime out Method to add the result value of user player after attack with 2 seconds delay
-        setTimeout( compAttack, 2000 )
+     
 // added conditional that checks if the user and computer health value is <=0 to determine the winner 
+              setTimeout( compAttack, 2000 )
       
-        if ( new_comp_hp <= 0 ) {
+        if ( new_comp_hp <= min_health ) {
             result_display.innerHTML =  `<h2 style=" font-size:2rem; margin-bottom:32px; color:red">you win! play again!</h2>`
-    
+            Cookies.set( `user_hp`, 20 )
+            console.log(user_health)
+            Cookies.set( `comp_hp`, 20)
 
         }
+        return  
 
-        return
+        
 
 }
 
@@ -142,4 +149,24 @@ let attack_button = document.querySelectorAll( `#attack_btn` )
         for ( let i = 0; i < attack_button.length; i++ ){ 
             attack_button[i].addEventListener( `click`, userAttack )
             
-        }
+}
+        
+function clearField( details )
+{
+    main_display[`style`][`display`] = `none`
+    Cookies.remove( `user_hp` );
+    Cookies.remove( `user_pokemon` )
+    Cookies.remove( `computer_pokemon` )
+    Cookies.remove( `comp_hp` );
+
+
+ 
+    
+
+}
+
+// get the delete button tag using querySelectors and
+//  adding event lsitener and making js call the emptycart function to remove our selection and display our empty cart message
+
+let clearBtn = document.querySelector( `.clear_field` );
+clearBtn.addEventListener(`click`, clearField)

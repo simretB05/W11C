@@ -37,7 +37,14 @@ body {
   font-size: 60px;
   font-weight: 800;
 }
-#main a {
+#main div {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 32px;
+}
+#main div a,
+#main div button {
   width: 92px;
   text-decoration: none;
   background-color: #f1f3f6;
@@ -50,10 +57,12 @@ body {
   transition: background-color 0.5s ease;
   box-shadow: 0 1px 0 #b2b3b4;
 }
-#main a:hover {
+#main div a:hover,
+#main div button:hover {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
 }
-#main a:active {
+#main div a:active,
+#main div button:active {
   transform: translateY(1px);
   box-shadow: none;
 }
