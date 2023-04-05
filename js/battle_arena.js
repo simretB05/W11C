@@ -87,13 +87,12 @@ let new_comp_hp = Cookies.get( `comp_hp` )
         user_display[`innerHTML`] = new_user_hp
         if ( new_user_hp <= 0 ) {
           
-            result_display.innerHTML = 'Game over! Play again?'
-            return
+            result_display.innerHTML = `<h2 style=" font-size:2rem; margin-bottom:32px; color:red">Game over! Play again!</h2>`
           
         } 
-        }
-       
+        return new_user_hp =user_health
 
+        }
 //updating the new value of the innerHTml for both the user and comp players
         comp_display[`innerHTML`] = new_comp_hp
         user_display[`innerHTML`] = new_user_hp
@@ -119,16 +118,16 @@ let new_comp_hp = Cookies.get( `comp_hp` )
         comp_display[`innerHTML`] = new_comp_hp
         
 // used the setTime out Method to add the result value of user player after attack with 2 seconds delay
-        setTimeout( compAttack, 4000 )
+        setTimeout( compAttack, 2000 )
 // added conditional that checks if the user and computer health value is <=0 to determine the winner 
       
         if ( new_comp_hp <= 0 ) {
-            result_display.innerHTML = 'you win! play again?'
-       return
+            result_display.innerHTML =  `<h2 style=" font-size:2rem; margin-bottom:32px; color:red">you win! play again!</h2>`
+    
 
         }
 
-     
+        return
 
 }
 
