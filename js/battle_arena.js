@@ -1,8 +1,8 @@
 // selected the necessary tags from the battle_arena.html using query selectors
     let main_display = document.querySelector( `.main_section` )
     let getmain = document.querySelector( `main` )
-    let result_display = document.querySelector( `#result` )
-    
+let result_display = document.querySelector( `#result` )
+
 //get the value of a cookie and  stored it to the variable userPokemon_json as a user player data
     let userPokemon_json = Cookies.get( `user_pokemon` )
 // used Json.parse to change the data type from string to object from and store it in a new variable named userSelection
@@ -63,7 +63,6 @@ let new_user_hp = Cookies.get( `user_hp` )
 let user_display = document.getElementById( `user_hp_text` )
 let comp_display = document.getElementById( `comp_hp_text` )
 let new_comp_hp = Cookies.get( `comp_hp` )
-let min_health = 0;
 //declared a function fro the computer payer
 //  that will set a new value of the user_health after the user has been attaked 
     function compAttack(){
@@ -88,11 +87,17 @@ let min_health = 0;
         user_display[`innerHTML`] = new_user_hp
 // added conditional that checks if the user and user health value is <=0 to determine the winner 
 
-        if ( new_user_hp <= min_health ) {
+        if ( new_user_hp <= 0 ) {
           
             result_display.innerHTML = `<h2 style=" font-size:2rem; margin-bottom:32px; color:red">Game over! Play again!</h2>`
-            Cookies.set( `user_hp`, 20)
-            Cookies.set( `comp_hp`, 20 )
+// added  a lppo to set the user_hp and the comp_hp values back to the original datta if the Game is over 
+            for ( let x = 0; x < pokemon.length; x++ ){
+        
+                Cookies.set( `user_hp`, pokemon[x][`max_health`] )
+            
+                Cookies.set( `comp_hp`,pokemon[x][`max_health`])
+        
+            }
         } 
     
         return 
@@ -124,11 +129,18 @@ let min_health = 0;
 // used the setTime out Method to add the result value of user player after attack with 2 seconds delay
         setTimeout( compAttack, 2000 )
       // added conditional that checks if the user and computer health value is <=0 to determine the winner 
-        if ( new_comp_hp <= min_health ) {
+        if ( new_comp_hp <= 0 ) {
             result_display.innerHTML =  `<h2 style=" font-size:2rem; margin-bottom:32px; color:red">you win! play again!</h2>`
-            Cookies.set( `user_hp`, 20 )
-            console.log(user_health)
-            Cookies.set( `comp_hp`, 20)
+// added  a lppo to set the user_hp and the comp_hp values back to the original datta if the  user own
+
+    for ( let x = 0; x < pokemon.length; x++ ){
+        
+        Cookies.set( `user_hp`, pokemon[x][`max_health`] )
+    
+        Cookies.set( `comp_hp`,pokemon[x][`max_health`])
+
+    }
+     
 
         }
         return  
