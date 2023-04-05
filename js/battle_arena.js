@@ -86,12 +86,13 @@ let min_health = 0;
 // it to a new variable and display it using the queryselector method 
         let new_user_hp = Cookies.get( `user_hp` )
         user_display[`innerHTML`] = new_user_hp
+// added conditional that checks if the user and user health value is <=0 to determine the winner 
+
         if ( new_user_hp <= min_health ) {
           
             result_display.innerHTML = `<h2 style=" font-size:2rem; margin-bottom:32px; color:red">Game over! Play again!</h2>`
             Cookies.set( `user_hp`, 20)
             Cookies.set( `comp_hp`, 20 )
-          
         } 
     
         return 
@@ -121,10 +122,8 @@ let min_health = 0;
         comp_display[`innerHTML`] = new_comp_hp
         
 // used the setTime out Method to add the result value of user player after attack with 2 seconds delay
-     
-// added conditional that checks if the user and computer health value is <=0 to determine the winner 
-              setTimeout( compAttack, 2000 )
-      
+        setTimeout( compAttack, 2000 )
+      // added conditional that checks if the user and computer health value is <=0 to determine the winner 
         if ( new_comp_hp <= min_health ) {
             result_display.innerHTML =  `<h2 style=" font-size:2rem; margin-bottom:32px; color:red">you win! play again!</h2>`
             Cookies.set( `user_hp`, 20 )
@@ -138,11 +137,6 @@ let min_health = 0;
 
 }
 
-
-
-
-// result_display.insertAdjacentHTML(`beforeend`,`<h2 style="  align-self: start;">User Lost</h2>`)
-
 // used query selector method  and a loop to select all the attack buttons from the dinamic html of the attack buttons
 let attack_button = document.querySelectorAll( `#attack_btn` )
 
@@ -151,22 +145,20 @@ let attack_button = document.querySelectorAll( `#attack_btn` )
             
 }
         
-function clearField( details )
-{
+
+//set a function to clear the play filed so that user can select a new player
+function clearField( details ){
     main_display[`style`][`display`] = `none`
+    //removing cookies from cookies jar
     Cookies.remove( `user_hp` );
     Cookies.remove( `user_pokemon` )
     Cookies.remove( `computer_pokemon` )
     Cookies.remove( `comp_hp` );
 
-
- 
-    
-
 }
 
 // get the delete button tag using querySelectors and
-//  adding event lsitener and making js call the emptycart function to remove our selection and display our empty cart message
+//  adding event lsitener and making js call the clearFild function to remove our selection and display our empty filed  message
 
 let clearBtn = document.querySelector( `.clear_field` );
 clearBtn.addEventListener(`click`, clearField)
