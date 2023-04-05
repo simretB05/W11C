@@ -62,7 +62,7 @@
 let new_user_hp = Cookies.get( `user_hp` )
 let user_display = document.getElementById( `user_hp_text` )
 let comp_display = document.getElementById( `comp_hp_text` )
-let new_comp_hp= Cookies.get( `comp_hp`)
+let new_comp_hp = Cookies.get( `comp_hp` )
 //declared a function fro the computer payer
 //  that will set a new value of the user_health after the user has been attaked 
     function compAttack(){
@@ -85,15 +85,20 @@ let new_comp_hp= Cookies.get( `comp_hp`)
 // it to a new variable and display it using the queryselector method 
         let new_user_hp = Cookies.get( `user_hp` )
         user_display[`innerHTML`] = new_user_hp
-
-
+        if ( new_user_hp <= 0 ) {
+          
+            result_display.innerHTML = 'Game over! Play again?'
+            return
+          
+        } 
         }
-
+       
 
 //updating the new value of the innerHTml for both the user and comp players
         comp_display[`innerHTML`] = new_comp_hp
         user_display[`innerHTML`] = new_user_hp
-
+        Cookies.set( `user_hp`, user_health)
+        Cookies.set( `comp_hp`, comp_health)
     
 //created a function that gets a details argumnet
     function userAttack( details ){
@@ -113,22 +118,23 @@ let new_comp_hp= Cookies.get( `comp_hp`)
         let new_comp_hp= Cookies.get( `comp_hp`)
         comp_display[`innerHTML`] = new_comp_hp
         
-// used the setTime out Method to add the result value of user player after attack with 3 seconds delay
-        setTimeout( compAttack, 2000 )
+// used the setTime out Method to add the result value of user player after attack with 2 seconds delay
+        setTimeout( compAttack, 4000 )
 // added conditional that checks if the user and computer health value is <=0 to determine the winner 
-        if (new_user_hp <= 0){ 
-            alert(`User Lost!!`)
+      
+        if ( new_comp_hp <= 0 ) {
+            result_display.innerHTML = 'you win! play again?'
+       return
 
-            
-        } else {
-         
-            return new_comp_hp
-            alert(`User Won!!`)
+        }
 
-        } 
+     
 
 }
-   
+
+
+
+
 // result_display.insertAdjacentHTML(`beforeend`,`<h2 style="  align-self: start;">User Lost</h2>`)
 
 // used query selector method  and a loop to select all the attack buttons from the dinamic html of the attack buttons
