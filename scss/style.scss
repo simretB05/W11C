@@ -29,6 +29,7 @@ body {
     place-items: center;
     padding-left: 400px;
     min-height: 80vh;
+
     h1 {
         color: #1a1717;
         background-color: rgb(241, 184, 184);
@@ -41,6 +42,26 @@ body {
         font-weight: 900;
         text-decoration: underline;
         justify-self: start;
+    }
+    .battle_field_link {
+        width: 92px;
+        text-decoration: none;
+        background-color: #f1f3f6;
+        border: none;
+        border-radius: 15px;
+        text-align: center;
+        color: rgb(27, 26, 26);
+        font-weight: 700;
+        padding: 7px;
+        transition: background-color 0.5s ease;
+        box-shadow: 0 1px 0 #b2b3b4;
+        &:hover {
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+        }
+        &:active {
+            transform: translateY(1px);
+            box-shadow: none;
+        }
     }
 }
 .main_section {
@@ -60,6 +81,7 @@ body {
                 text-align: center;
             }
         }
+
         .selection {
             width: 92px;
             background-color: #f1f3f6;

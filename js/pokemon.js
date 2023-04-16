@@ -6,7 +6,7 @@ let pokemon = [
     attacks: [
         {
             name:`hug`,
-            damage:4
+            damage:2
         },
         {
             name:`Lovely Kiss`,
